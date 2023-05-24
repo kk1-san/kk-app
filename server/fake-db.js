@@ -2,7 +2,7 @@ const Product = require('./model/product')
 
 class FakeDb{
     constructor(){
-        this.product = [
+        this.products = [
             {
                 coverImage:'./assets/img/phone-cover.jpg',
                 name: 'Phone XL',
@@ -55,7 +55,7 @@ class FakeDb{
     }
 
     pushProductsToDB() {
-        this.pushProductsToDB.forEach(
+        this.products.forEach(
             (product) => {
                 const newProduct = new Product(product)
                 newProduct.save()
@@ -63,7 +63,7 @@ class FakeDb{
         )
     }
 
-    seeDB() {
+    seeDb() {
         this.pushProductsToDB()
     }
 }
