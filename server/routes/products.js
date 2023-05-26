@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const Product = require('../model/product')
 
-router.get('', function(req, res) {
-    res.json({'ok': true})
+router.get('', async function(req, res) {
+    foundProducts = await Product.find({})
+    res.json(foundProducts)
 })
 
 module.exports = router
